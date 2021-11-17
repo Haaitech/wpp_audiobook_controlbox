@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name WPP-Control-box-rescue)(type Legacy)(uri "${KIPRJMOD}/WPP Control box-rescue.lib")(options "")(descr ""))
+  (lib (name promicro)(type Legacy)(uri "C:/Users/Haaitech/Documents/Kicad Librarys/promicro_library/promicro.lib")(options "")(descr ""))
+)

@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name librarys)(type KiCad)(uri "C:/Users/Haaitech/Desktop/Kicad projects/librarys.pretty")(options "")(descr ""))
+  (lib (name Logo)(type KiCad)(uri "C:/Users/Haaitech/Documents/Kicad Librarys/Logo.pretty")(options "")(descr ""))
+)
