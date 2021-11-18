@@ -38,13 +38,14 @@ byte fwdFallingState;
 byte pauzeFallingState;
 byte recFallingState;
 
+int incomingByte = 0;
 
 USBMIDI_CREATE_DEFAULT_INSTANCE();
 unsigned long t0 = millis();
 
 void setup() {
   MIDI.begin(1);
-  //Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(save, INPUT_PULLUP);
   pinMode(quit, INPUT_PULLUP);
   pinMode(marker, INPUT_PULLUP);
@@ -116,25 +117,30 @@ void loop() { // Refresh all inputs
 
     if (DFE(digitalRead(rec), recFallingState)) {
         MIDI.sendSysEx(3, selectzone, true);
-        delay(20);
         MIDI.sendSysEx(3, recon, true);
     }
 
     if (DRE(digitalRead(rec), recRisingState)) {
        MIDI.sendSysEx(3, selectzone, true);
-       delay(20);
        MIDI.sendSysEx(3, recoff, true);
     }
 
      if (DFE(digitalRead(pauze), pauzeFallingState)) {
         MIDI.sendSysEx(3, selectzone, true);
         delay(20);
-        MIDI.sendSysEx(3, playon, true);
+        MIDI.sendSysEx(3, stopon, true);
     }
 
     if (DRE(digitalRead(pauze), pauzeRisingState)) {
        MIDI.sendSysEx(3, selectzone, true);
        delay(20);
-       MIDI.sendSysEx(3, playoff, true);
+       MIDI.sendSysEx(3, stopoff, true);
     }
+
+// print serial data if received
+
+      incomingByte = Serial.read();
+
+      // say what you got:
+      Serial.println(incomingByte, HEX);
 }
