@@ -19,12 +19,8 @@ byte recFallingState;
 
 USBMIDI_Interface usbmidi;
 
-
 CCButton REV {14, {MIDI_CC::PR_REV, CHANNEL_1}};
 CCButton FWD {9, {MIDI_CC::PR_FWD, CHANNEL_1}};
-//CCButton STP {15, {MIDI_CC::PR_STOP, CHANNEL_1}};
-//CCButton PLY {7, {MIDI_CC::PR_PLAY, CHANNEL_1}};
-//CCButton REC {7, {MIDI_CC::PR_REC, CHANNEL_1}};
 
 CCLED led { 10,  MIDI_CC::PR_REC};
 CCLED checkplay { 5, MIDI_CC::PR_PLAY};
@@ -37,6 +33,37 @@ void setup() {
   pinMode(pauze, INPUT_PULLUP);
   pinMode(rec, INPUT_PULLUP);
 
+}
+
+boolean readButtons() {
+
+  // Read button states every 5 ms (debounce time):
+  static unsigned long lastDebounce;
+  if (millis() - lastDebounce >= 5) {
+    lastDebounce = millis();
+
+    if (DFE(digitalRead(rec), recFallingState)) {
+      Control_Surface.sendControlChange(0x76, 127);
+      Control_Surface.sendControlChange(0x75, 127);
+    }
+
+    if (DRE(digitalRead(rec), recRisingState)) {
+      Control_Surface.sendControlChange(0x76, 0);
+      Control_Surface.sendControlChange(0x75, 0);
+    }
+
+    if (DFE(digitalRead(pauze), pauzeFallingState))  {
+      if (isplaying == true) {
+        Control_Surface.sendControlChange(0x74, 127);
+      } else {
+        Control_Surface.sendControlChange(0x75, 127);
+      }
+    }
+    if (DRE(digitalRead(pauze), pauzeRisingState)) {
+      Control_Surface.sendControlChange(0x74, 0);
+      Control_Surface.sendControlChange(0x75, 0);
+    }
+  }
 }
 
 void loop() { // Refresh all inputs
@@ -73,22 +100,5 @@ void loop() { // Refresh all inputs
     noTone(tonePin);
   }
 
-  if (DFE(digitalRead(rec), recFallingState)) {
-    Control_Surface.sendControlChange(0x76, 127);
-    Control_Surface.sendControlChange(0x75, 127);
-  }
-
-  if (DRE(digitalRead(rec), recRisingState)) {
-    Control_Surface.sendControlChange(0x76, 0);
-    Control_Surface.sendControlChange(0x75, 0);
-  }
-
-  if (DFE(digitalRead(pauze), pauzeFallingState))  {
-    if (isplaying == true) {
-      Control_Surface.sendControlChange(0x74, 127);
-    } else {
-      Control_Surface.sendControlChange(0x75, 127);
-    }
-  }
-
+  readButtons();
 }
