@@ -1,0 +1,5 @@
+constexpr uint8_t PR_REV                            = 0x72;
+constexpr uint8_t PR_FWD                            = 0x73;
+constexpr uint8_t PR_STOP                           = 0x74;
+constexpr uint8_t PR_PLAY                           = 0x75;
+constexpr uint8_t PR_REC                            = 0x76;
