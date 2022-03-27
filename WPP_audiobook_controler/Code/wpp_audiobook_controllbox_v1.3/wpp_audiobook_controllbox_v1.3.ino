@@ -1,6 +1,6 @@
 #include <Control_Surface.h>
 //#include <Keyboard.h>
-#include <PluggableUSBHID.h>
+//#include <PluggableUSBHID.h>
 #include <USBKeyboard.h>
 
 USBKeyboard Keyboard;
@@ -25,11 +25,14 @@ byte recFallingState;
 
 USBMIDI_Interface usbmidi;
 
-//CCButton REV {14, {MIDI_CC::PR_REV, CHANNEL_1}};
+// These are the rev and fwd buttons, they are disabled for now becouse of a bug in protools 10,
+// uncomment the next two lines to enable them.
+
+//CCButton REV {14, {MIDI_CC::PR_REV, CHANNEL_1}};  
 //CCButton FWD {9, {MIDI_CC::PR_FWD, CHANNEL_1}};
 
 CCLED led { 10,  MIDI_CC::PR_REC};
-CCLED checkplay { 5, MIDI_CC::PR_PLAY};
+CCLED checkplay { 5, MIDI_CC::PR_PLAY}; // this is a not conected pin but will be set to high if playing, used for some logic do not disable.
 
 void setup() {
   Control_Surface.begin();

@@ -19,8 +19,8 @@ byte recFallingState;
 
 USBMIDI_Interface usbmidi;
 
-CCButton REV {14, {MIDI_CC::PR_REV, CHANNEL_1}};
-CCButton FWD {9, {MIDI_CC::PR_FWD, CHANNEL_1}};
+//CCButton REV {14, {MIDI_CC::PR_REV, CHANNEL_1}};
+//CCButton FWD {9, {MIDI_CC::PR_FWD, CHANNEL_1}};
 
 CCLED led { 10,  MIDI_CC::PR_REC};
 CCLED checkplay { 5, MIDI_CC::PR_PLAY};
