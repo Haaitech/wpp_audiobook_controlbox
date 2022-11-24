@@ -1,9 +1,7 @@
 #include <Control_Surface.h>
-//#include <Keyboard.h>
-//#include <PluggableUSBHID.h>
-#include <USBKeyboard.h>
+#include <Keyboard.h>
 
-USBKeyboard Keyboard;
+
 
 const int save    = 16;
 const int quit    = 8;
@@ -12,6 +10,7 @@ const int tonePin = 3;
 const int pauze   = 15;
 const int rec     = 7;
 bool isplaying    = false;
+bool isRecording  = false;
 
 #define DRE(signal, state) (state=(state<<1)|signal)==B00001111
 byte pauzeRisingState;
@@ -36,6 +35,7 @@ CCLED checkplay { 5, MIDI_CC::PR_PLAY}; // this is a not conected pin but will b
 
 void setup() {
   Control_Surface.begin();
+  Keyboard.begin();
   pinMode(save, INPUT_PULLUP);
   pinMode(quit, INPUT_PULLUP);
   pinMode(marker, INPUT_PULLUP);
@@ -52,13 +52,23 @@ boolean readButtons() {
     lastDebounce = millis();
 
     if (DFE(digitalRead(rec), recFallingState)) {
-      Control_Surface.sendControlChange(0x76, 127);
-      Control_Surface.sendControlChange(0x75, 127);
+
+      if (isRecording == true){
+        Control_Surface.sendControlChange(0x74, 127);
+      } else {
+        Control_Surface.sendControlChange(0x76, 127);
+        Control_Surface.sendControlChange(0x75, 127);
+      }
     }
 
     if (DRE(digitalRead(rec), recRisingState)) {
+      if(isRecording == true){
+        Control_Surface.sendControlChange(0x74, 0);
+        Control_Surface.sendControlChange(0x75, 0);
+      } else {
       Control_Surface.sendControlChange(0x76, 0);
       Control_Surface.sendControlChange(0x75, 0);
+      }
     }
 
     if (DFE(digitalRead(pauze), pauzeFallingState))  {
@@ -80,6 +90,12 @@ void loop() { // Refresh all inputs
   Control_Surface.loop();
 
   if (digitalRead(5) == HIGH) {
+    isplaying = true;
+  } else {
+    isplaying = false;
+  }
+
+  if (digitalRead(10) == HIGH) {
     isplaying = true;
   } else {
     isplaying = false;
