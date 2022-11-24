@@ -1,0 +1,145 @@
+Pro Tools Complete Midi CC# Chart
+
+Free Programmable CC# : 75 (0-11,16,25-32,42-48,58-63,65-73,79-108,112,119)
+Pro Tools Fixed CC# : 39 (12-15,17-24,33-41.49-57,109-111,113-118)
+Dead CC# (Not working) : 14 (64,74-78,120-127) 
+
+CC# 0-127 =
+
+CC# 0
+CC# 1
+CC# 2
+CC# 3
+CC# 4
+CC# 5
+CC# 6
+CC# 7
+CC# 8
+CC# 9
+CC# 10
+CC# 11
+CC# 12 – mute selected track
+CC# 13 – solo selected track
+CC# 14 – move bank left
+CC# 15 – move bank right
+CC# 16
+CC# 17 – Pan knob 1 (incremental/endless)
+CC# 18 – Pan knob 2 (incremental/endless)
+CC# 19 – Pan knob 3 (incremental/endless)
+CC# 20 – Pan knob 4 (incremental/endless)
+CC# 21 – Pan knob 5 (incremental/endless)
+CC# 22 – Pan knob 6 (incremental/endless)
+CC# 23 – Pan knob 7 (incremental/endless)
+CC# 24 – Pan knob 8 (incremental/endless)
+CC# 25
+CC# 26
+CC# 27
+CC# 28
+CC# 29
+CC# 30
+CC# 31
+CC# 32
+CC# 33 – Fader 1
+CC# 34 – Fader 2
+CC# 35 – Fader 3
+CC# 36 – Fader 4
+CC# 37 – Fader 5
+CC# 38 – Fader 6
+CC# 39 – Fader 7
+CC# 40 – Fader 8
+CC# 41 – Master Fader
+CC# 42
+CC# 43
+CC# 44
+CC# 45
+CC# 46
+CC# 47
+CC# 48
+CC# 49 – Slider Button 1
+CC# 50 – Slider Button 2
+CC# 51 – Slider Button 3
+CC# 52 – Slider Button 4
+CC# 53 – Slider Button 5
+CC# 54 – Slider Button 6
+CC# 55 – Slider Button 7
+CC# 56 – Slider Button 8
+CC# 57 – Flip button
+CC# 58
+CC# 59
+CC# 60
+CC# 61
+CC# 62
+CC# 63
+CC# 64 --- NOT WORKING! ---
+CC# 65
+CC# 66
+CC# 67
+CC# 68
+CC# 69
+CC# 70
+CC# 71
+CC# 72
+CC# 73
+CC# 74 --- NOT WORKING! ---
+CC# 75 --- NOT WORKING! ---
+CC# 76 --- NOT WORKING! ---
+CC# 77 --- NOT WORKING! ---
+CC# 78 --- NOT WORKING! ---
+CC# 79
+CC# 80
+CC# 81
+CC# 82
+CC# 83
+CC# 84
+CC# 85
+CC# 86
+CC# 87
+CC# 88
+CC# 89
+CC# 90
+CC# 91
+CC# 92
+CC# 93
+CC# 94
+CC# 95
+CC# 96
+CC# 97
+CC# 98
+CC# 99
+CC# 100
+CC# 101
+CC# 102
+CC# 103
+CC# 104
+CC# 105
+CC# 106
+CC# 107
+CC# 108
+CC# 109 – Mode button
+CC# 110 – Prev track
+CC# 111 – Next track
+CC# 112
+
+	Pro Tools M-Audio keyboard transport controls
+|---------------------------------------------------------------|
+|								|
+| CC# 113 – Loop button				HEX: 0x71	|
+| CC# 114 – Rewind				HEX: 0x72	|
+| CC# 115 – Fast Forward			HEX: 0x73	|
+| CC# 116 – Stop				HEX: 0x74	|
+| CC# 117 – Play				HEX: 0x75	|
+| CC# 118 – Record				HEX: 0x76	|
+|								|
+|---------------------------------------------------------------|
+
+CC# 119
+CC# 120 --- NOT WORKING! ---
+CC# 121 --- NOT WORKING! ---
+CC# 122 --- NOT WORKING! ---
+CC# 123 --- NOT WORKING! ---
+CC# 124 --- NOT WORKING! ---
+CC# 125 --- NOT WORKING! ---
+CC# 126 --- NOT WORKING! ---
+CC# 127 --- NOT WORKING! ---
+
+--------------------------------
