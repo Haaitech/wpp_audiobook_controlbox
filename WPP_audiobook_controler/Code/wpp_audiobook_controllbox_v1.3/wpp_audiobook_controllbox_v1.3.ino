@@ -1,9 +1,6 @@
 #include <Control_Surface.h>
-//#include <Keyboard.h>
-//#include <PluggableUSBHID.h>
-#include <USBKeyboard.h>
+#include <Keyboard.h>
 
-USBKeyboard Keyboard;
 
 const int save    = 16;
 const int quit    = 8;
