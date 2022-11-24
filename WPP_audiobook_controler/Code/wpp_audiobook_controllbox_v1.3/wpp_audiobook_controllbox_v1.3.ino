@@ -65,9 +65,11 @@ boolean readButtons() {
       if(isRecording == true){
         Control_Surface.sendControlChange(0x74, 0);
         Control_Surface.sendControlChange(0x75, 0);
+        Control_Surface.sendControlChange(0x76, 0);
+
       } else {
-      Control_Surface.sendControlChange(0x76, 0);
-      Control_Surface.sendControlChange(0x75, 0);
+        Control_Surface.sendControlChange(0x76, 0);
+        Control_Surface.sendControlChange(0x75, 0);
       }
     }
 
